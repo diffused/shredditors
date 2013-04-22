@@ -1,0 +1,11 @@
+<div class="container">
+
+	<form method="post" action="/login" class="well form-inline">	
+	  <input name="username" id="username" type="text" class="input-small span2" placeholder="username" value="<%= h flash[:username]%>">
+	  <input name="password" type="password" class="input-small span2" placeholder="password">
+	  <button type="submit" class="btn">go</button>
+	</form>
+
+</div>
+
+<script src="/js/login.js"></script>

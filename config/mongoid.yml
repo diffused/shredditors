@@ -1,0 +1,27 @@
+# defaults: &defaults
+  # host: localhost
+  # slaves:
+  #   - host: slave1.local
+  #     port: 27018
+  #   - host: slave2.local
+  #     port: 27019
+
+development:
+  # <<: *defaults
+  host: localhost
+  database: shredditors
+  logger: false
+
+test:
+  host: localhost
+  database: shredditors_test
+  logger: false
+
+# set these environment variables on your prod server
+# production:
+#   host: staff.mongohq.com
+#   port: 
+#   database: 
+#   username: 
+#   password: 
+#   logger: false

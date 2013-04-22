@@ -1,0 +1,111 @@
+<script src="/js/peeps.js"></script>
+<script>
+	$(function() {
+		var hm = []
+		// $(home_mountains).each(function(i, element){
+		// 	//hm.push(ele)
+		// 	console.log(element.name)
+		// 	console.log('kk')
+		// 	hm.push(element.name)
+
+		// })
+
+		// //$('.subnav').scrollspy()
+		// $('#home_mountain_typeahead').typeahead({
+		//  	source: hm
+		// })
+		//console.log(home_mountains.turoa)
+	})
+
+	var home_mountains = [
+		'Turoa', 'Whakapapa', 'Mayrhofen'
+	]
+
+	// var home_mountains = [
+	// 	{ name: 'Turoa', slug: 'turoa' },
+	// 	{ name: 'Whakapapa', slug: 'whakapapa' },
+	// 	{ name: 'Mayrhofen', slug: 'mayrhofen'},
+	// ]
+	// var home_mountains = {
+	// 	'turoa': 'Turoa',
+	// 	'jackson_hole':'Jackson Hole',
+	// }
+	
+	// $(document).scroll(function(){	
+	// 	console.log($('.subnav').attr('data-top'))  
+	//   // If has not activated (has no attribute "data-top"
+	//   if (!$('.subnav').attr('data-top')) {	  		
+	//       // If already fixed, then do nothing
+	//       if ($('.subnav').hasClass('subnav-fixed')) return;
+	//       // Remember top position
+	//       var offset = $('.subnav').offset()
+	//       $('.subnav').attr('data-top', offset.top);
+	//   }
+
+	//   if ($('.subnav').attr('data-top') - $('.subnav').outerHeight() <= $(this).scrollTop())
+	//       $('.subnav').addClass('subnav-fixed');
+	//   else
+	//       $('.subnav').removeClass('subnav-fixed');
+	// });
+</script>
+<div class="container">
+	
+  <div class="subnav subnav-fixed-top" data-top="60">
+    <form method="GET" action="/peeps/list/" id="home_mountain_form">
+	    <ul class="nav nav-pills">      
+	      <li>
+	    		<!-- <div class="input-append">
+	          <span class="add-on"><a href="#" id="clear_home_mountain_link">x</a></span>
+	        </div> -->
+	        <input type="text" id="home_mountain_typeahead" class="span2" placeholder="Home Mountain..." style="margin: 0 auto;" value="Jackson Hole">
+	        <button type="submit" class="btn" id="find">Find</button>
+	    	</li>      
+	    </ul>
+  	</form>
+  </div>
+	
+</div>
+
+<div id="main"></div>
+
+
+<script id="peeps_list_template" type="text/html">
+	<ul id="tiles">
+	{{#peeps}}
+		<li>
+			<a href="/peep/{{username_slug}}"><img src="{{default_pic}}"></a>
+			<p><a href="/peep/{{username_slug}}">{{username}}</a></p>
+			<p>{{home_mountain}}</p>
+
+		</li>
+	{{/peeps}}
+	</ul>
+</script>
+
+<style>
+	/*#main { display:block; height:2000px;}*/
+	#tiles { display:block; position: relative; list-style: none; margin:0; padding:0;}
+	#tiles li { 
+		width: 180px;
+		background-color: #ffffff;
+		border: 1px solid #dedede;
+		-moz-border-radius: 2px;
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+		display: none; /** Hide items initially to avoid a flicker effect **/
+		cursor: pointer;
+		padding: 10px;
+		/*width:198px; background:#eee;  margin:0; padding:0;*/
+	}
+
+	#tiles li img { display: block; }
+	/**
+ * Grid item text
+ */
+#tiles li p {
+color: #666;
+font-size: 12px;
+margin: 7px 0 0 7px;
+}
+
+</style>

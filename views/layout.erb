@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Shredditors of /r/snowboarding</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="/js/jquery-1.7.1.min.js"></script>
+    <script src="/js/ICanHaz.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.wookmark.js"></script>
+    <script src="/js/jquery.imagesloaded.min.js"></script>    
+    <!-- <link href="/css/bootstrap.spacelab.min.css" rel="stylesheet"> -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- Le styles -->
+    
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;        
+      }
+
+      #map_canvas img{max-width:none}
+    </style>    
+    
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Shredditors!</a>
+          <div class="nav-collapse">
+            <ul class="nav">              
+              <li><a href="/map">Map</a></li>
+              <!-- <li><a href="#contact">Contact</a></li> -->
+            </ul>
+
+            <ul class="nav pull-right">
+              <% if session[:logged_in] == nil then %>
+              <li><a href="/register">Register</a></li>   
+              <li><a href="/login">Login</a></li>
+              <% else %>
+              <li><a href="/peep/<%= session[:logged_in] %>"><%= session[:logged_in] %></a>
+              <li><a href="/logout">Logout</a></li>   
+              <% end %> 
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <% if flash[:error] != nil then %>
+    <div class="container">
+      <div class="alert alert-error">
+        <a class="close" data-dismiss="alert">×</a>
+        <h4 class="alert-heading">Warning!</h4>
+        <%= flash[:error] %>
+      </div>
+    </div>
+    <% end %>
+    <%#= styled_flash %>
+    <%= yield %>
+
+    <div class="container">      
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2012</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap-transition.js"></script>
+    <script src="/js/bootstrap-alert.js"></script>
+    <script src="/js/bootstrap-modal.js"></script>
+    <script src="/js/bootstrap-dropdown.js"></script>
+    <script src="/js/bootstrap-scrollspy.js"></script>
+    <script src="/js/bootstrap-tab.js"></script>
+    <script src="/js/bootstrap-tooltip.js"></script>
+    <script src="/js/bootstrap-popover.js"></script>
+    <script src="/js/bootstrap-button.js"></script>
+    <script src="/js/bootstrap-collapse.js"></script>
+    <script src="/js/bootstrap-carousel.js"></script>
+    <script src="/js/bootstrap-typeahead.js"></script>
+    -->
+
+  </body>
+</html>
+
+
